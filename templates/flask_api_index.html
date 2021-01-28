@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form action="{{url_for('result')}}" method=post enctype="multipart/form-data">
+<h1>雑草判定アプリ</h1>
+<h2>VGG16+ImageNet, 転移学習により作成　by S.Sakai</h2>
+<h3>登録されている雑草</h3>
+<h3>Butakusa,Dokudami,Enokorogusa, Hakobe,
+  Hamasuge,Himejion,Hotarubukuro,Hotokenoza,Katabami,
+  Kayatsurigusa,Ohishiba,OOarechinogiku, Seidakaawadachisou,  Suberihiyu,
+  Sugina, Suzumenokatabira,  Tanpopo</h3>
+<br>
+<dl>
+  <dt>アップロードする画像を選択して下さい</dt>
+  <dd><input type=file id="image" name=image></dd>
+  <dd><input type=submit value=送信></dd>
+</dl>
+ 
+</form>
+
+  {%if result_img %}
+  <h3>予想クラス(括弧内数値は確率)</h3>
+  {{ pred_label }}({{score}})
+
+  [{{fname}}]
+  <p>
+      <img src={{result_img}} class="image-vw">
+  </p>
+  {% endif %}
+{% endblock %}

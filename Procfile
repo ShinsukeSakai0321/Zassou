@@ -1,0 +1,1 @@
+web: gunicorn Zassou-Web-Apli:app --log-file -

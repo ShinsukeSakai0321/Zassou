@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h3>予想クラス</h3>
+{{ predict_Confidence }}
+
+
+<p>
+    <img src={{result_img}} class="image-vw">
+</p>
+
+{% endblock %}
