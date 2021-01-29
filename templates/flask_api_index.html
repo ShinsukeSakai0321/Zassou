@@ -19,12 +19,9 @@
 </form>
 
   {%if result_img %}
+  [{{fname}}]
   <h3>予想クラス(括弧内数値は確率)</h3>
   {{ pred_label }}({{score}})
 
-  [{{fname}}]
-  <p>
-      <img src={{result_img}} class="image-vw">
-  </p>
   {% endif %}
 {% endblock %}
